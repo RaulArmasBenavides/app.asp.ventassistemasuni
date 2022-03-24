@@ -1,0 +1,83 @@
+﻿@model IEnumerable<VentasSistemasUni.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/JsEventos.js"></script>
+
+<style>
+button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+button:hover {
+	text-decoration: none;
+}
+button:active {
+	position: relative;
+	top: 1px;
+}
+
+</style>
+
+<h2>Index</h2>
+
+<p>    
+    <button class="btn-create">Nuevo Producto</button>
+</p>
+
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProducto.NombreTipoProducto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoProducto.NombreTipoProducto)
+                </td>
+                <td>
+                    <button class="btn-details" data-codigo="@item.ProductoID">Detalles</button>
+                    <button class="btn-edit" data-codigo="@item.ProductoID">Editar</button>
+                    <button class="btn-delete" data-codigo="@item.ProductoID">Eliminar</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+<div id="modal"></div>
+

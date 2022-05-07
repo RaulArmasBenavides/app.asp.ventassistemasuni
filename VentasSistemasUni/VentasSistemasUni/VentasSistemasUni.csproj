@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -246,6 +247,7 @@
     <Content Include="Views\TipoProducto\Details.cshtml" />
     <Content Include="Views\TipoProducto\Edit.cshtml" />
     <Content Include="Views\TipoProducto\Index.cshtml" />
+    <Content Include="Views\Producto\GetTipo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

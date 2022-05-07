@@ -14,9 +14,24 @@ namespace VentasSistemasUni.Controllers
     {
         private VentasSistemasUniEntities db = new VentasSistemasUniEntities();
 
+
+        // GET: Producto
+        public ActionResult GetTipo()
+        {
+            //lazy loading
+            var productos = db.Productoes.ToList();
+            var tipo = productos[1].TipoProducto;
+
+            //var productoes = db.Productoes.Include(p => p.TipoProducto);
+            return View(productos);
+        }
+
+
         // GET: Producto
         public ActionResult Index()
         {
+
+            //eager loading 
             var productoes = db.Productoes.Include(p => p.TipoProducto);
             return View(productoes.ToList());
         }
